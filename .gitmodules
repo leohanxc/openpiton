@@ -4,3 +4,6 @@
 [submodule "aws"]
 	path = piton/design/aws
 	url = https://github.com/PrincetonUniversity/openpiton-aws.git
+[submodule "maple"]
+	path = maple
+	url = git@github.com:Victor-YG/maple.git
