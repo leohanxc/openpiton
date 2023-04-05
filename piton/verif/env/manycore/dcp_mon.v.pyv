@@ -91,7 +91,7 @@ if(!$test$plusargs("disable_dcp_mon")) begin
     begin
         $display("S2_REQ! mshr/entry/addr/rdy/nocr: %d/%d/%x/%d/%d",`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.s2_mshr,
                 `DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.s2_entry, `DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.s2_addr,
-                `DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.s2_req_rdy,`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.dcp_noc2buffer_rdy); 
+                `DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.s2_req_rdy,`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.dcp_noc2buffer_rdy);
         $display("***** %d *****",$time/1000);
     end
     `ifdef DCP_AES
@@ -99,27 +99,27 @@ if(!$test$plusargs("disable_dcp_mon")) begin
     if (`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.u_aes_wrapper.aes_inputs_valid_reg)
     begin
         $display("AES inputs are valid: %x/%x",`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.u_aes_wrapper.aes_key_data_reg,
-                `DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.u_aes_wrapper.aes_plaintext_data_reg); 
+                `DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.u_aes_wrapper.aes_plaintext_data_reg);
         $display("***** %d *****",$time/1000);
     end
 
     if (`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.u_aes_wrapper.aes_ciphertext_valid)
     begin
-        $display("AES output is valid: %x",`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.u_aes_wrapper.aes_ciphertext_data); 
+        $display("AES output is valid: %x",`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.u_aes_wrapper.aes_ciphertext_data);
         $display("***** %d *****",$time/1000);
     end
     `endif
 
     if (`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.u_maple.s1_val_sel)
     begin
-    $display("S1_REQ! real/addr_val: %d/%d",`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.u_maple.s1_req_real,`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.u_maple.s1_addr_val); 
+    $display("S1_REQ! real/addr_val: %d/%d",`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.u_maple.s1_req_real,`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.u_maple.s1_addr_val);
     $display("S1_ADDR! tlb_vaddr/s1_vaddr/tlb_paddr: %x/%x/%x",`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.tlb_vaddr,`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.u_maple.s1_vaddr,
-                `DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.tlb_paddr); 
-    $display("S1_CHOSEN! val_r/fifo/oh: %b/%d/%b",`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.s0_val_r,`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.u_maple.s1_fifo,`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.u_maple.s1_fifo_oh); 
-    $display("S1_STALL! full/stall: %b/%d",`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.u_maple.fc_fifo_full,`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.u_maple.s1_stall); 
+                `DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.tlb_paddr);
+    $display("S1_CHOSEN! val_r/fifo/oh: %b/%d/%b",`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.s0_val_r,`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.u_maple.s1_fifo,`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.u_maple.s1_fifo_oh);
+    $display("S1_STALL! full/stall: %b/%d",`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.u_maple.fc_fifo_full,`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.u_maple.s1_stall);
     $display("S1_COMPL! req/tlb/rdy/nocr: %d/%d/%d/%d",`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.u_maple.s1_requested,
-                `DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.u_maple.s1_tlb_requested, `DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.u_maple.s1_rdy, 
-                `DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.dcp_noc2buffer_rdy); 
+                `DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.u_maple.s1_tlb_requested, `DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.u_maple.s1_rdy,
+                `DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.dcp_noc2buffer_rdy);
         $display("***** %d *****",$time/1000);
     end
     if (`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.l0_val_r[0])
@@ -130,29 +130,29 @@ if(!$test$plusargs("disable_dcp_mon")) begin
     end
     if (`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.u_maple.fc_incr_hsk)
     begin
-        $display("INCR! idx:%d, entry:%d, nxt:%d",`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.u_maple.fc_incr_idx,`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.u_maple.fc_incr_entry,`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.u_maple.u_fc.fifo_tail_nxt); 
+        $display("INCR! idx:%d, entry:%d, nxt:%d",`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.u_maple.fc_incr_idx,`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.u_maple.fc_incr_entry,`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.u_maple.u_fc.fifo_tail_nxt);
         $display("***** %d *****",$time/1000);
     end
     if (`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.u_maple.fc_decr_hsk)
     begin
-        //$display("DECR! idx:%d entry:%d",`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.u_maple.fc_decr_idx,`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.u_maple.fc_decr_entry); 
+        //$display("DECR! idx:%d entry:%d",`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.u_maple.fc_decr_idx,`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.u_maple.fc_decr_entry);
         $display("***** %d *****",$time/1000);
     end
     if (`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.fc_add_hsk)
     begin
-        $display("ADD! idx:%d size:%d",`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.fc_add_idx,`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.fc_add_size); 
+        $display("ADD! idx:%d size:%d",`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.fc_add_idx,`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.fc_add_size);
         $display("***** %d *****", $time/1000);
     end
     if (`DECADES_IS_TILE0.is_core_inst.dcp.tlb_req)// &&`DECADES_IS_TILE0.is_core_inst.dcp.tlb_ack )
     begin
-        $display("TLB! VA/PA: %x/%x",`DECADES_IS_TILE0.is_core_inst.dcp.tlb_vaddr,`DECADES_IS_TILE0.is_core_inst.dcp.tlb_paddr); 
-        $display("TLB! HIT/EXC: %d/%d",`DECADES_IS_TILE0.is_core_inst.tlb_ack,`DECADES_IS_TILE0.is_core_inst.tlb_exc_val); 
+        $display("TLB! VA/PA: %x/%x",`DECADES_IS_TILE0.is_core_inst.dcp.tlb_vaddr,`DECADES_IS_TILE0.is_core_inst.dcp.tlb_paddr);
+        $display("TLB! HIT/EXC: %d/%d",`DECADES_IS_TILE0.is_core_inst.tlb_ack,`DECADES_IS_TILE0.is_core_inst.tlb_exc_val);
         $display("***** %d *****", $time/1000);
     end
     if (`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.c0_hsk)
     begin
         $display("CONF!! T/Fifo!: %d-%d/%d",`DECADES_IS_TILE0.is_core_inst.dcp.coreid_y,`DECADES_IS_TILE0.is_core_inst.dcp.coreid_x,`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.s0_fifo);
-        $display("CONF!! T/Fifo!: %x, %x, %x",`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.noc1decoder_dcp_address,`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.noc1_data_hi,`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.noc1_data_lo); 
+        $display("CONF!! T/Fifo!: %x, %x, %x",`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.noc1decoder_dcp_address,`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.noc1_data_hi,`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.noc1_data_lo);
         if (`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.conf_op_reset) $display("RESET: %d",`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.noc1decoder_dcp_src);
         if (`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.c0_aconfigure) $display("Config Access: %d",`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.noc1decoder_dcp_src);
         else if (`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.c0_econfigure) $display("Config Execute: %d",`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.noc1decoder_dcp_src);
@@ -169,7 +169,7 @@ if(!$test$plusargs("disable_dcp_mon")) begin
         else if (`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.tlb_conf) $display("TLB_CONF: op=%d, data=%x",`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.fifo_bits,`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.c0_data);
         else if (`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.tlb_poll) $display("TLB_POLL: op=%d, snoop=%x, fault=%x",`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.fifo_bits,`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.tlb_snoop_entry, `DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.tlb_exc_vaddr);
         else if (`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.invalidate) $display("Conf while INVALIDATE flag");
-        else begin 
+        else begin
                $display("Conf_other: %d",`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.noc1decoder_dcp_src);
                //`MONITOR_PATH.fail("Illegal config msg");
            end
@@ -180,7 +180,7 @@ if(!$test$plusargs("disable_dcp_mon")) begin
     begin
         $display("CR_PIPE_pre!! word=%d fifo=%d",`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.cr.u_cr.pipe_word_idx, `DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.cr.u_cr.pipe_fifo);
         $display("word_map=%b chunk=%d", `DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.cr.u_cr.word_map,`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.cr.u_cr.chunk_clr_idx);
-        if (`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.cr.u_cr.last_word) 
+        if (`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.cr.u_cr.last_word)
             $display("last: chunkt_nxt=%d", `DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.cr.u_cr.chunk_tail_nxt);
         $display("&&TIMEP&& %d &&&&", $time/1000);
     end
@@ -191,12 +191,12 @@ if(!$test$plusargs("disable_dcp_mon")) begin
     end
     if (`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.tlb_cr_req)
     begin
-        $display("TLB_CR!! vaddr=%x ack=%d",`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.tlb_cr_vpage, `DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.tlb_cr_ack);  
+        $display("TLB_CR!! vaddr=%x ack=%d",`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.tlb_cr_vpage, `DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.tlb_cr_ack);
         $display("***** %d *****", $time/1000);
     end
     if (`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.cr.u_cr.cr_req_hsk)
     begin
-        $display("CR_REQ!! paddr=%x idx=%d rdy=%d",`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.cr_req_paddr, `DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.cr_req_idx,`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.cr_req_rdy);  
+        $display("CR_REQ!! paddr=%x idx=%d rdy=%d",`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.cr_req_paddr, `DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.cr_req_idx,`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.cr_req_rdy);
         $display("last_entry_alloc=%d, chunk=%d",!`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.cr.u_cr.fifo_remaining_chunks, `DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.cr.u_cr.chunk_alloc_idx);
         $display("rem=%d, words=%b, chunkh_nxt=%d, req_part=%d",`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.cr.u_cr.alloc_remaining_words,`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.cr.u_cr.valid_words,`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.cr.u_cr.chunk_head_nxt,`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.cr_req_part);
         $display("&&TIMER&& %d &&&&", $time/1000);
@@ -220,7 +220,30 @@ if(!$test$plusargs("disable_dcp_mon")) begin
     end
     if (`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.l0_val)
     begin
-        $display("CONSUME!! T/Fifo!: %d-%d/%d",`DECADES_IS_TILE0.is_core_inst.dcp.coreid_y,`DECADES_IS_TILE0.is_core_inst.dcp.coreid_x, `DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.s0_fifo); 
+        $display("CONSUME!! T/Fifo!: %d-%d/%d",`DECADES_IS_TILE0.is_core_inst.dcp.coreid_y,`DECADES_IS_TILE0.is_core_inst.dcp.coreid_x, `DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.s0_fifo);
+        $display("***** %d *****",$time/1000);
+    end
+    if (`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.u_maple.fc_incr_hsk)
+    begin
+        $display("T/Fifo %d-%d/%d, load entry %d",`DECADES_IS_TILE0.is_core_inst.dcp.coreid_y, `DECADES_IS_TILE0.is_core_inst.dcp.coreid_x,
+            `DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.u_maple.fc_incr_idx,`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.u_maple.fc_incr_entry);
+        $display("Fifo read stalled %d",`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.count_ld_fifo_stall);
+        $display("Fifo store stalled %d",`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.count_st_fifo_stall);
+        $display("Fifo occupancy %d",`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.count_use);
+        $display("Transaction total count %d",`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.count_transactions);
+        $display("Transaction fifo count %d",`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.count_fifo_transactions);
+        $display("Cycles st count %d", `DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.count_st_fifo);
+        $display("Cycles ld count %d", `DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.count_ld_fifo);
+        $display("Trans ld count %d", `DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.count_ld_fifo);
+        //$display("Load stall accum %d",ld_stall_sum);
+        $display("Latency produce %f", `DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.count_st_fifo/(
+                    `DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.count_fifo_transactions+`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.count_use));
+        $display("Latency consume %f", `DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.count_ld_fifo/`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.count_fifo_transactions);
+        //$display("Store stall accum %d",st_stall_sum);
+        st_stall_sum <= st_stall_sum + `DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.count_st_fifo_stall;
+        ld_stall_sum <= ld_stall_sum + `DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.count_ld_fifo_stall;
+        occupancy_sum <= occupancy_sum + `DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.count_use;
+        transactions_sum <= transactions_sum + 1'b1;
         $display("***** %d *****",$time/1000);
     end
     if (`DECADES_IS_TILE0.is_core_inst.dcp.u_pipe.u_maple.fc_decr_hsk)
@@ -313,7 +336,7 @@ if(!$test$plusargs("disable_dcp_mon")) begin
         $display("NOC2_ENC_DATA/%d: %x",`DECADES_IS_TILE0.is_core_inst.dcp.dcp_dst_vr_noc2_rdy,`DECADES_IS_TILE0.is_core_inst.dcp.dcp_dst_vr_noc2_dat);
         $display("***** %d *****",$time/1000);
     end
-    `endif    
+    `endif
 
     '''
     tt = ReplicatePattern(t, ["RTL_IS_TILE0","DECADES_IS_TILE0"]);
